@@ -118,9 +118,24 @@
 	(cond
 		((eq (isLL2a q) nil) nil)
 		(t
-			(append (mapcar #'list '(1 1 1) '(a b c)))
+			(mapcar #'list (m-helper (car q) (cadr q)) (cadr q))
 		)
 	)
 )
 
+(defun m-helper (q r) 	;r is the cdr and q is the car of the list ie- 1st element
+	
+	(cond
+		((null q) nil)
+		(t (do(
+				(len (length r) (- len 1))
+				(res nil (append res (list q)))
+			  )
+				((eq len 0) res)
+			)
+		)
+		
+	)
+	
+)
 
